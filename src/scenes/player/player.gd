@@ -29,7 +29,7 @@ func _input(event):
 			camera.rotate_x(-event.relative.y * look_sensitivity)
 			camera.rotation.x = clamp(camera.rotation.x, min_look_angle, max_look_angle)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# --- Movement --- #
 	var direction = Vector3.ZERO
 	

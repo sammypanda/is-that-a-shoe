@@ -11,9 +11,20 @@ config_version=5
 [application]
 
 config/name="Is that a shoe?!"
-run/main_scene="res://src/scenes/main/main.tscn"
+run/main_scene="res://src/scenes/splash/splash.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="res://icon.png"
+
+[display]
+
+window/size/mode=2
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [input]
 
@@ -47,3 +58,4 @@ move_backward={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.0431373, 0.0431373, 0.0431373, 1)

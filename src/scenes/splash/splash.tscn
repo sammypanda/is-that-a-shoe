@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2bpafigqp2hw"]
+
+[ext_resource type="Texture2D" uid="uid://bshyhasbabcw5" path="res://src/textures/icons/shoe.png" id="2_wryrg"]
+
+[sub_resource type="GDScript" id="GDScript_3st0x"]
+script/source = "extends Node
+
+func _ready():
+	self.position = get_viewport().size/2
+
+func finish_splashing():
+	get_tree().change_scene_to_file(\"res://src/scenes/main/main.tscn\")
+
+func _on_animation_player_animation_finished(_anim_name):
+	finish_splashing()
+"
+
+[sub_resource type="Animation" id="Animation_e4br5"]
+resource_name = "shoe_anim"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shoe:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shoe:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shoe:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5jdcm"]
+_data = {
+"shoe_anim": SubResource("Animation_e4br5")
+}
+
+[node name="Splash" type="Node2D"]
+script = SubResource("GDScript_3st0x")
+
+[node name="Shoe" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_wryrg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "shoe_anim"
+libraries = {
+"": SubResource("AnimationLibrary_5jdcm")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
