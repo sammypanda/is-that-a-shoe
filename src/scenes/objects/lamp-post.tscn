@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://07mw82qgv1su"]
+
+[ext_resource type="PackedScene" uid="uid://dfajhqmpmpstu" path="res://src/models/lamp-post.blend" id="1_in0xp"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="lamp-post" parent="." instance=ExtResource("1_in0xp")]
+
+[editable path="lamp-post"]
