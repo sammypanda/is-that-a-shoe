@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Is that a shoe?!"
+config/name="is-that-a-shoe"
 run/main_scene="res://src/scenes/splash/splash.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/show_image=false
