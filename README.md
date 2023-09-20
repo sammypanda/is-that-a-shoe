@@ -1,18 +1,6 @@
 ## The TODO Main List ~
 ###### With bonus subsiding lists!
 - <details>
-    <summary id="distance-event">Create distance based event trigger</summary>
-
-    - <details>
-        <summary>Finish tests/demos</summary>
-
-        - Draw line from player to $target
-        - Print length of line from player to $target
-        - Create hook/function/mechanism based on length of ray/line
-    </details>
-
-    </details>
-- <details>
     <summary>Create <b>'new item appeared'</b> sparkle</summary>
 
     - Create a sparkly effect/shader

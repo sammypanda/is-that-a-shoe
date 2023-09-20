@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://py1keqfdrmdc"]
+[gd_scene load_steps=11 format=3 uid="uid://py1keqfdrmdc"]
 
 [ext_resource type="Script" path="res://src/scenes/main/main.gd" id="1_124do"]
 [ext_resource type="PackedScene" uid="uid://yiy00cgrkt65" path="res://src/scenes/player/player.tscn" id="1_mbrpb"]
 [ext_resource type="PackedScene" uid="uid://07mw82qgv1su" path="res://src/scenes/objects/lamp-post.tscn" id="3_7wi0q"]
+[ext_resource type="Script" path="res://src/scenes/main/Shoe.gd" id="4_rt4pr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d13jv"]
 filter = false
@@ -27,6 +28,8 @@ size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5shcj"]
 size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_80dyp"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_124do")
@@ -59,3 +62,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Lamp" parent="." instance=ExtResource("3_7wi0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Shoe" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.507892, -1.2063)
+script = ExtResource("4_rt4pr")
+shoe_distance_threshold = 15
+
+[node name="ShoeBoundary" type="MeshInstance3D" parent="Shoe"]
+visible = false
+mesh = SubResource("BoxMesh_80dyp")
