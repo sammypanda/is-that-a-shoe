@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxip7pi3b11r3"]
+
+[ext_resource type="Script" path="res://src/scenes/bus/camera_control.gd" id="1_furlj"]
+
+[node name="Bus" type="Node"]
+
+[node name="CameraControl" type="Node" parent="."]
+script = ExtResource("1_furlj")

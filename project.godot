@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="res://icon.png"
 
+[autoload]
+
+CameraControl="*res://src/scenes/bus/camera_control.gd"
+
 [display]
 
 window/size/mode=2

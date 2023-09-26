@@ -16,3 +16,6 @@ func _physics_process(_delta):
 	) > shoe_distance_threshold
 	
 	self.visible = sparkle_event # only show 'Shoe' mesh when 'sparkle_event' time
+	
+	if sparkle_event:
+		CameraControl.request_camera_attention.emit(self.global_transform.origin)

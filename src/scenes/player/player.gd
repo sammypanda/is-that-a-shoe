@@ -16,6 +16,9 @@ var look_sensitivity = 0.01
 # Important variables
 var target_velocity = Vector3.ZERO
 
+func _ready():
+	CameraControl.connect("request_camera_attention", request_camera_attention)
+
 func _input(event):
 	# --- Look Rotation --- #
 	if event is InputEventMouseButton:
@@ -28,6 +31,9 @@ func _input(event):
 			head.rotate_y(-event.relative.x * look_sensitivity)
 			camera.rotate_x(-event.relative.y * look_sensitivity)
 			camera.rotation.x = clamp(camera.rotation.x, min_look_angle, max_look_angle)
+
+func request_camera_attention(object):
+	head.look_at(object)
 
 func _physics_process(_delta):
 	# --- Movement --- #

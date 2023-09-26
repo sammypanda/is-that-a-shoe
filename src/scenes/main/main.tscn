@@ -47,6 +47,9 @@ mesh = SubResource("BoxMesh_5shcj")
 
 [node name="Player" parent="." instance=ExtResource("1_mbrpb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+speed = 5
+max_look_angle = 1.5708
+min_look_angle = -1.39626
 
 [node name="Lamp" parent="." instance=ExtResource("3_7wi0q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0358433, -2)

@@ -1,12 +1,6 @@
 ## The TODO Main List ~
 ###### With bonus subsiding lists!
 - <details>
-    <summary>Create <b>'new item appeared'</b> sparkle</summary>
-
-    - Create application wide signal bus
-    - Use the signal bus to make camera look at sparkle
-    </details>
-- <details>
     <summary>Create shoe lookin' props</summary>
 
     - ~~Nail polish bottle~~
@@ -23,3 +17,6 @@
     - Export UV unwrap/advise the artist
     - Import UV unwrap back onto the props
     </details>
+- Fix constant triggering of the request_camera_attention and glow visibility (shoe_glow)
+- Create tween to ease request_camera_attention
+- Creating separate function to **purposefully** lock attention to ShoeGlow
