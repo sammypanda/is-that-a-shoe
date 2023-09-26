@@ -1,3 +1,6 @@
+# Godot meta
+.godot
+
 # Plugins (no global plugins in 4.2 *sad*)
 addons/discord-sdk-gd
 
