@@ -9,13 +9,23 @@ func _ready():
 	self.visible = false
 	assert(shoe_distance_threshold != 0 || null, "The shoe distance threshold is unset or 0")
 	assert(player != null, "The player object is not defined")
+	
+func handle_sparkle(glowing):	
+	self.visible = glowing
+	
+	match looked_at:
+		true:
+			# stop one-time triggering events from re-triggering
+			looked_at = glowing
+		false:
+			if glowing:
+				# one time triggering events in shoe glow lifetime go here:
+				CameraControl.request_camera_attention.emit(self.global_transform.origin)
+				looked_at = true
 
 func _physics_process(_delta):
-	var sparkle_event : bool = global_transform.origin.distance_to(
+	var should_sparkle : bool = global_transform.origin.distance_to(
 		player.global_transform.origin
 	) > shoe_distance_threshold
 	
-	self.visible = sparkle_event # only show 'Shoe' mesh when 'sparkle_event' time
-	
-	if sparkle_event:
-		CameraControl.request_camera_attention.emit(self.global_transform.origin)
+	handle_sparkle(should_sparkle)

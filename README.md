@@ -17,6 +17,6 @@
     - Export UV unwrap/advise the artist
     - Import UV unwrap back onto the props
     </details>
-- Fix constant triggering of the request_camera_attention and glow visibility (shoe_glow)
 - Create tween to ease request_camera_attention
 - Creating separate function to **purposefully** lock attention to ShoeGlow
+- Improve handle_sparkle() to include should_sparkle: pass in a differential value of the shoe_distance_threshold
