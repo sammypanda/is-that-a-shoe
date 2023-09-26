@@ -18,4 +18,3 @@
     - Import UV unwrap back onto the props
     </details>
 - Create tween to ease request_camera_attention
-- Creating separate function to **purposefully** lock attention to ShoeGlow
