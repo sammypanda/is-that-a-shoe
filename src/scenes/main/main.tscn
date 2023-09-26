@@ -54,4 +54,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0358433, -2)
 [node name="ShoeGlow" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_fmt6a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.9)
 player = NodePath("../Player")
-shoe_distance_threshold = 10
+shoe_distance_threshold = 15

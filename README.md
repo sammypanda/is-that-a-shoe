@@ -19,4 +19,3 @@
     </details>
 - Create tween to ease request_camera_attention
 - Creating separate function to **purposefully** lock attention to ShoeGlow
-- Improve handle_sparkle() to include should_sparkle: pass in a differential value of the shoe_distance_threshold

@@ -10,7 +10,23 @@ func _ready():
 	assert(shoe_distance_threshold != 0 || null, "The shoe distance threshold is unset or 0")
 	assert(player != null, "The player object is not defined")
 	
-func handle_sparkle(glowing):	
+#func handle_sparkle(glowing):	
+#	self.visible = glowing
+#
+#	match looked_at:
+#		true:
+#			# stop one-time triggering events from re-triggering
+#			looked_at = glowing
+#		false:
+#			if glowing:
+#				# one time triggering events in shoe glow lifetime go here:
+#				CameraControl.request_camera_attention.emit(self.global_transform.origin)
+#				looked_at = true
+
+func handle_sparkle(differential, offset):
+	var glowing = differential >= 0
+	var attention = differential + offset >= 0
+	
 	self.visible = glowing
 	
 	match looked_at:
@@ -18,14 +34,14 @@ func handle_sparkle(glowing):
 			# stop one-time triggering events from re-triggering
 			looked_at = glowing
 		false:
-			if glowing:
-				# one time triggering events in shoe glow lifetime go here:
+			# one time triggering events in shoe glow lifetime can go here:
+			if attention: # if is far enough away to grab 'attention'
 				CameraControl.request_camera_attention.emit(self.global_transform.origin)
 				looked_at = true
-
-func _physics_process(_delta):
-	var should_sparkle : bool = global_transform.origin.distance_to(
-		player.global_transform.origin
-	) > shoe_distance_threshold
 	
-	handle_sparkle(should_sparkle)
+func _physics_process(_delta):
+	var threshold_differential: int = global_transform.origin.distance_to(
+		player.global_transform.origin
+	) - shoe_distance_threshold
+	
+	handle_sparkle(threshold_differential, -6)
